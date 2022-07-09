@@ -24,13 +24,7 @@ nnoremap <silent> [<Space> :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "'
 nnoremap <BS> i<BS><Esc>`^
 " Delete next word in insert mode
 inoremap <C-del> <C-o>de
-"cnoremap term split term
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-set wildcharm=<Tab>
-nnoremap <leader>. :b <Tab>
+cnoremap term split term lines=10
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'nvim-telescope/telescope.nvim'
@@ -52,34 +46,11 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 " Install "Plug 'mhinz/vim-startify'
 Plug 'https://github.com/tpope/vim-obsession'
-" post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'yaegassy/coc-tailwindcss3', {'do': 'yarn install --frozen-lockfile'}
-Plug 'sainnhe/gruvbox-material'
-Plug 'sheerun/vim-polyglot'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }
-" ES2015 code snipets (Optional)
-Plug 'epilande/vim-es2015-snippets'
-
-" React code snippets
-Plug 'epilande/vim-react-snippets'
-
-" Ultisnips
-"Plug 'SirVerultisnips'
 call plug#end()
-
-autocmd BufWritePre *.js Neoformat
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-
-let g:tokyonight_style = "night"
-
-syntax enable
-colorscheme gruvbox-material
+colorscheme space-vim-dark
 "hi normal guibg=none ctermbg=none
 
 "use <tab> for trigger completion and navigate to the next complete item

@@ -24,3 +24,4 @@ set colorcolumn=80
 set path+=**
 set wildmenu
 set wildignore+=**/node_modules/**
+set splitbelow
